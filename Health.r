@@ -6,8 +6,8 @@ Log <- read.csv("DATA/Dailylog.csv")
 AddFood <- function(food, quantity) {
 	if (food %in% Ingredients$Food) {
 		entry <- subset(Ingredients, Food==food)[2:5]
-		Log[1,] <<- Log[1,] + (entry * quantity)
-	}
+		Log[1,1:4] <<- Log[1,1:4] + (entry * quantity)
+    }
 	else
 		print ("Invalid food selection, try again")
 }	
@@ -17,9 +17,9 @@ AddCals <- function(cals) {
 }
 
 ClearLog <- function() {
-	Log[1,] <<- c(0,0,0,0)
+	Log[1,] <<- c(0,0,0,0,0)
 }
 
 SaveLog <- function() {
-	write.csv(Log[1,], "DATA/testing.csv", row.names=FALSE)
+	write.csv(Log[1,], "DATA/DailyLog.csv", row.names=FALSE)
 }
