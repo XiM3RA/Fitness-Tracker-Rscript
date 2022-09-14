@@ -72,7 +72,7 @@ Archive <- function() {
 # Clears log, does not save log
 ClearLog <- function() {
 	Log[1,] <<- c(0,0,0,0)
-    FoodLog <- c()
+    FoodLog <<- c("")
 }
 
 # Saves log for editing at a later time
