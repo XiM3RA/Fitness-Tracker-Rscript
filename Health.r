@@ -61,8 +61,9 @@ AddRecipe <- function(Food, foods) {
 
 Archive <- function() {
     foods <- paste(FoodLog,collapse=", ")
-    entry <- data.frame(Sys.Date(),Log[1,],foods)
-    Arxiv <- read.csv("DATA/Macros.csv", header=TRUE)
+    date <- as.character(Sys.Date())
+    entry <- data.frame(date,Log[1,],foods)
+    Arxiv <- read.csv("DATA/Macros.csv", stringsAsFactor=FALSE)
     colnames(entry)[1] <- "Date"
     colnames(entry)[6] <- "Foods"
     print(entry)
